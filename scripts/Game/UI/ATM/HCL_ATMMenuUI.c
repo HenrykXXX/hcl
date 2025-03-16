@@ -7,11 +7,13 @@ class HCL_ATMMenuUI : ChimeraMenuBase
     protected TextWidget m_wTitleText;
     protected TextWidget m_wWelcomeText;
     protected TextWidget m_wUserNameText;
-    protected TextWidget m_wBalanceLabel;
-    protected TextWidget m_wBalanceText;
+    protected TextWidget m_wAccountBalanceLabel;
+    protected TextWidget m_wAccountBalanceText;
+    protected TextWidget m_wPlayerBalanceLabel;
+    protected TextWidget m_wPlayerBalanceText;
     
     // Buttons
-    protected ButtonWidget m_wGetCashButton;
+    protected ButtonWidget m_wWithdrawButton;
     protected ButtonWidget m_wPayButton;
     protected ButtonWidget m_wDepositButton;
     protected ButtonWidget m_wOtherButton;
@@ -39,8 +41,11 @@ class HCL_ATMMenuUI : ChimeraMenuBase
         if (m_wUserNameText)
             m_wUserNameText.SetText(m_ATMComponent.GetUserName());
             
-        if (m_wBalanceText)
-            m_wBalanceText.SetText(m_ATMComponent.GetBalance().ToString() + "$");
+        if (m_wAccountBalanceText)
+            m_wAccountBalanceText.SetText(m_ATMComponent.GetAccountBalance().ToString() + "$");
+            
+        if (m_wPlayerBalanceText)
+            m_wPlayerBalanceText.SetText(m_ATMComponent.GetPlayerBalance().ToString() + "$");
     }
     
     //------------------------------------------------------------------------------------------------
@@ -54,11 +59,13 @@ class HCL_ATMMenuUI : ChimeraMenuBase
         m_wTitleText = TextWidget.Cast(m_wRoot.FindAnyWidget("TitleText"));
         m_wWelcomeText = TextWidget.Cast(m_wRoot.FindAnyWidget("WelcomeText"));
         m_wUserNameText = TextWidget.Cast(m_wRoot.FindAnyWidget("UserNameText"));
-        m_wBalanceLabel = TextWidget.Cast(m_wRoot.FindAnyWidget("BalanceLabel"));
-        m_wBalanceText = TextWidget.Cast(m_wRoot.FindAnyWidget("BalanceText"));
+        m_wAccountBalanceLabel = TextWidget.Cast(m_wRoot.FindAnyWidget("AccountBalanceLabel"));
+        m_wAccountBalanceText = TextWidget.Cast(m_wRoot.FindAnyWidget("AccountBalanceText"));
+        m_wPlayerBalanceLabel = TextWidget.Cast(m_wRoot.FindAnyWidget("PlayerBalanceLabel"));
+        m_wPlayerBalanceText = TextWidget.Cast(m_wRoot.FindAnyWidget("PlayerBalanceText"));
         
         // Get button references
-        m_wGetCashButton = ButtonWidget.Cast(m_wRoot.FindAnyWidget("GetCashButton"));
+        m_wWithdrawButton = ButtonWidget.Cast(m_wRoot.FindAnyWidget("WithdrawButton"));
         m_wPayButton = ButtonWidget.Cast(m_wRoot.FindAnyWidget("PayButton"));
         m_wDepositButton = ButtonWidget.Cast(m_wRoot.FindAnyWidget("DepositButton"));
         m_wOtherButton = ButtonWidget.Cast(m_wRoot.FindAnyWidget("OtherButton"));
@@ -75,9 +82,9 @@ class HCL_ATMMenuUI : ChimeraMenuBase
         if (!m_ATMComponent)
             return false;
             
-        if (w == m_wGetCashButton)
+        if (w == m_wWithdrawButton)
         {
-            Print("Get Cash clicked!");
+            Print("Withdraw clicked!");
             return true;
         }
         else if (w == m_wPayButton)

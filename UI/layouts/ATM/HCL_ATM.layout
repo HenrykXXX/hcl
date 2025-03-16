@@ -5,19 +5,18 @@ FrameWidgetClass {
    Name "MainOverlay"
    Slot FrameWidgetSlot "{64E0E27B52C09715}" {
     Anchor 0.5 0.5 0.5 0.5
-    PositionX -375
-    OffsetLeft -375
-    PositionY -250
-    OffsetTop -250
+    OffsetLeft 0
+    OffsetTop 0
     SizeX 750
-    OffsetRight -375
-    SizeY 500
-    OffsetBottom -250
+    OffsetRight -750
+    SizeY 600
+    OffsetBottom -600
+    Alignment 0.5 0.5
    }
    {
     ImageWidgetClass "{64E0E278E2ED9665}" {
      Name "BackgroundImage"
-     Slot OverlayWidgetSlot {
+     Slot OverlayWidgetSlot "{64E130C3953F5B3E}" {
       HorizontalAlign 3
       VerticalAlign 3
      }
@@ -32,7 +31,7 @@ FrameWidgetClass {
      {
       TextWidgetClass "{64E0E2786097FD70}" {
        Name "TitleText"
-       Slot LayoutSlot {
+       Slot LayoutSlot "{64E130C3953F5B7A}" {
         Padding 40 40 0 0
        }
        style debugUI
@@ -41,7 +40,7 @@ FrameWidgetClass {
       }
       HorizontalLayoutWidgetClass "{64E0E27A2016FFBF}" {
        Name "ContentLayout"
-       Slot LayoutSlot {
+       Slot LayoutSlot "{64E130C3953F5BAE}" {
         HorizontalAlign 3
         VerticalAlign 3
        }
@@ -53,14 +52,14 @@ FrameWidgetClass {
          {
           VerticalLayoutWidgetClass "{64E0E27BEBBA1AFB}" {
            Name "UserInfoLayout"
-           Slot LayoutSlot {
+           Slot LayoutSlot "{64E130C3953F5B8F}" {
             Padding 40 40 0 0
            }
            Color 0.012 0.347 0.761 1
            {
             TextWidgetClass "{64E0E2782317E2AD}" {
              Name "WelcomeText"
-             Slot LayoutSlot {
+             Slot LayoutSlot "{64E130C3953F5B9B}" {
              }
              Color 0.03 0.352 0.815 1
              style debugUI
@@ -79,8 +78,29 @@ FrameWidgetClass {
              "Min Font Size" 16
             }
             TextWidgetClass "{64E0E27D33EE7AA4}" {
-             Name "BalanceLabel"
+             Name "AccountBalanceLabel"
              Slot LayoutSlot "{64E0E27D30B8E5D3}" {
+             }
+             Color 0.03 0.352 0.815 1
+             style debugUI
+             Text "Account Balance"
+             "Font Size" 16
+             "Min Font Size" 16
+            }
+            TextWidgetClass "{64E0E27D461AF3F0}" {
+             Name "AccountBalanceText"
+             Slot LayoutSlot "{64E0E27D30B8E5D3}" {
+              Padding 0 0 0 40
+             }
+             style debugUI
+             Text ":ACCOUNT_BALANCE:"
+             "Font Size" 23
+             "Min Font Size" 16
+            }
+            TextWidgetClass "{64E0E27D33EE7AA5}" {
+             Name "PlayerBalanceLabel"
+             Slot LayoutSlot "{64E0E27D30B8E5D3}" {
+              Padding 0 20 0 0
              }
              Color 0.03 0.352 0.815 1
              style debugUI
@@ -88,13 +108,13 @@ FrameWidgetClass {
              "Font Size" 16
              "Min Font Size" 16
             }
-            TextWidgetClass "{64E0E27D461AF3F0}" {
-             Name "BalanceText"
+            TextWidgetClass "{64E0E27D461AF3F1}" {
+             Name "PlayerBalanceText"
              Slot LayoutSlot "{64E0E27D30B8E5D3}" {
               Padding 0 0 0 40
              }
              style debugUI
-             Text ":USER_BALANCE:"
+             Text ":PLAYER_BALANCE:"
              "Font Size" 23
              "Min Font Size" 16
             }
@@ -110,7 +130,7 @@ FrameWidgetClass {
          }
          {
           ButtonWidgetClass "{64E0E27DD0A73C19}" {
-           Name "GetCashButton"
+           Name "WithdrawButton"
            Slot LayoutSlot "{64E0E27DD0A73C26}" {
             Padding 30 10 10 0
             SizeMode Fill
@@ -119,10 +139,10 @@ FrameWidgetClass {
            Color 0 0.456 0.922 1
            {
             TextWidgetClass "{64E0E27C091ED582}" {
-             Name "GetCashText"
+             Name "WithdrawText"
              Slot ButtonWidgetSlot "{64E0E27C091ED5A7}" {
              }
-             Text "Get Cash"
+             Text "Withdraw"
             }
            }
           }

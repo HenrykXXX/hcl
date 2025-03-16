@@ -8,8 +8,11 @@ class HCL_ATMComponent: ScriptComponent
     [Attribute(category: "ATM")]
     protected string m_UserName;
     
-    [Attribute(category: "ATM")]
-    protected int m_Balance;
+    [Attribute(category: "ATM", desc: "Player's bank account balance")]
+    protected int m_AccountBalance;
+    
+    [Attribute(category: "ATM", desc: "Player's current cash on hand")]
+    protected int m_PlayerBalance;
     
     string GetName()
     {
@@ -21,9 +24,14 @@ class HCL_ATMComponent: ScriptComponent
         return m_UserName;
     }
     
-    int GetBalance()
+    int GetAccountBalance()
     {
-        return m_Balance;
+        return m_AccountBalance;
+    }
+    
+    int GetPlayerBalance()
+    {
+        return m_PlayerBalance;
     }
     
     //------------------------------------------------------------------------------------------------

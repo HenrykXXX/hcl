@@ -4,7 +4,8 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
   HCL_ATMComponent "{64E130C6AECE4219}" {
    m_MenuName "ATM"
    m_UserName "Janusz"
-   m_Balance 69
+   m_AccountBalance 6999
+   m_PlayerBalance 69
   }
   MeshObject "{5872F0EB7FA40561}" {
    Object "{053D51375DC10586}Assets/Props/Furniture/BarTable_01/BarTable_01.xob"
