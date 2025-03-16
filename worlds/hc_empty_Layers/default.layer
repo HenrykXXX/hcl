@@ -1,3 +1,13 @@
-GenericEntity : "{6CD34D6526429EEC}Prefabs/Props/Furniture/BarTable_01.et" {
+GenericEntity : "{6CD34D6526429EEC}Prefabs/Props/Furniture/BarTable_Spawn.et" {
+ components {
+  HCL_SpawnMenuComponent "{64E0D044A9DE6F60}" {
+   m_SpawnPosition1 PointInfo "{64E117030CC4EF12}" {
+    Offset 128 1 127
+   }
+   m_SpawnPosition2 PointInfo "{64E11703065FEE25}" {
+    Offset 158 1 127
+   }
+  }
+ }
  coords 131.137 1 125.926
 }

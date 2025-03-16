@@ -30,16 +30,40 @@ class HCL_SpawnMenuUI : ChimeraMenuBase
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	protected void TeleportPlayer(vector position)
+	{
+		if (position == vector.Zero)
+			return;
+			
+		SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerController());
+		if (!playerController)
+			return;
+			
+		IEntity playerEntity = playerController.GetMainEntity();
+		if (!playerEntity)
+			return;
+			
+		// Set player position
+		playerEntity.SetOrigin(position);
+		
+		// Close the menu after teleporting
+		Close();
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	override bool OnClick(Widget w, int x, int y, int button)
 	{
+		if (!m_SpawnMenu)
+			return false;
+			
 		if (w == m_Button1)
 		{
-			Print("Button 1 clicked!");
+			TeleportPlayer(m_SpawnMenu.GetSpawnPosition1());
 			return true;
 		}
 		else if (w == m_Button2)
 		{
-			Print("Button 2 clicked!");
+			TeleportPlayer(m_SpawnMenu.GetSpawnPosition2());
 			return true;
 		}
 		

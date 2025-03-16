@@ -3,6 +3,10 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
  components {
   HCL_SpawnMenuComponent "{64E0D044A9DE6F60}" {
    m_MenuName "Spawn Menu"
+   m_SpawnPosition1 PointInfo "{64E117030CC4EF12}" {
+   }
+   m_SpawnPosition2 PointInfo "{64E11703065FEE25}" {
+   }
   }
   ActionsManagerComponent "{64E0D04458359D48}" {
    ActionContexts {
