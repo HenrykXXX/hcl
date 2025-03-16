@@ -2,7 +2,7 @@ FrameWidgetClass {
  Name "rootFrame"
  {
   OverlayWidgetClass "{64E0E27B52C0970E}" {
-   Name "Overlay0"
+   Name "MainOverlay"
    Slot FrameWidgetSlot "{64E0E27B52C09715}" {
     Anchor 0.5 0.5 0.5 0.5
     PositionX -375
@@ -16,7 +16,7 @@ FrameWidgetClass {
    }
    {
     ImageWidgetClass "{64E0E278E2ED9665}" {
-     Name "Image0"
+     Name "BackgroundImage"
      Slot OverlayWidgetSlot {
       HorizontalAlign 3
       VerticalAlign 3
@@ -24,14 +24,14 @@ FrameWidgetClass {
      Color 0.003 0.041 0.309 1
     }
     VerticalLayoutWidgetClass "{64E0E27A6FE5276C}" {
-     Name "VerticalLayout0"
+     Name "MainVerticalLayout"
      Slot OverlayWidgetSlot "{64E0E27A6FE5277B}" {
       HorizontalAlign 3
       VerticalAlign 3
      }
      {
       TextWidgetClass "{64E0E2786097FD70}" {
-       Name "Text1"
+       Name "TitleText"
        Slot LayoutSlot {
         Padding 40 40 0 0
        }
@@ -40,36 +40,36 @@ FrameWidgetClass {
        "Font Size" 53
       }
       HorizontalLayoutWidgetClass "{64E0E27A2016FFBF}" {
-       Name "HorizontalLayout0"
+       Name "ContentLayout"
        Slot LayoutSlot {
         HorizontalAlign 3
         VerticalAlign 3
        }
        {
         VerticalLayoutWidgetClass "{64E0E27A25468CA2}" {
-         Name "VerticalLayout2"
+         Name "InfoLayout"
          Slot LayoutSlot "{64E0E27A25468CC8}" {
          }
          {
           VerticalLayoutWidgetClass "{64E0E27BEBBA1AFB}" {
-           Name "VerticalLayout0"
+           Name "UserInfoLayout"
            Slot LayoutSlot {
             Padding 40 40 0 0
            }
            Color 0.012 0.347 0.761 1
            {
             TextWidgetClass "{64E0E2782317E2AD}" {
-             Name "Text0"
+             Name "WelcomeText"
              Slot LayoutSlot {
              }
              Color 0.03 0.352 0.815 1
              style debugUI
-             Text "Welcom"
+             Text "Welcome"
              "Font Size" 16
              "Min Font Size" 16
             }
             TextWidgetClass "{64E0E27D30B8E51A}" {
-             Name "Text1"
+             Name "UserNameText"
              Slot LayoutSlot "{64E0E27D30B8E5D3}" {
               Padding 0 0 0 40
              }
@@ -79,7 +79,7 @@ FrameWidgetClass {
              "Min Font Size" 16
             }
             TextWidgetClass "{64E0E27D33EE7AA4}" {
-             Name "Text2"
+             Name "BalanceLabel"
              Slot LayoutSlot "{64E0E27D30B8E5D3}" {
              }
              Color 0.03 0.352 0.815 1
@@ -89,7 +89,7 @@ FrameWidgetClass {
              "Min Font Size" 16
             }
             TextWidgetClass "{64E0E27D461AF3F0}" {
-             Name "Text4"
+             Name "BalanceText"
              Slot LayoutSlot "{64E0E27D30B8E5D3}" {
               Padding 0 0 0 40
              }
@@ -103,14 +103,14 @@ FrameWidgetClass {
          }
         }
         VerticalLayoutWidgetClass "{64E0E27A24304D27}" {
-         Name "VerticalLayout1"
+         Name "LeftButtonsLayout"
          Slot LayoutSlot "{64E0E27A24304D4E}" {
           Padding 0 40 0 0
           SizeMode Fill
          }
          {
           ButtonWidgetClass "{64E0E27DD0A73C19}" {
-           Name "Button1"
+           Name "GetCashButton"
            Slot LayoutSlot "{64E0E27DD0A73C26}" {
             Padding 30 10 10 0
             SizeMode Fill
@@ -119,7 +119,7 @@ FrameWidgetClass {
            Color 0 0.456 0.922 1
            {
             TextWidgetClass "{64E0E27C091ED582}" {
-             Name "Text0"
+             Name "GetCashText"
              Slot ButtonWidgetSlot "{64E0E27C091ED5A7}" {
              }
              Text "Get Cash"
@@ -127,7 +127,7 @@ FrameWidgetClass {
            }
           }
           ButtonWidgetClass "{64E0E27DDECEB0BA}" {
-           Name "Button0"
+           Name "PayButton"
            Slot LayoutSlot "{64E0E27DDECEB0DC}" {
             Padding 30 10 10 10
             SizeMode Fill
@@ -135,7 +135,7 @@ FrameWidgetClass {
            Color 0 0.456 0.922 1
            {
             TextWidgetClass "{64E0E27C0A6AE22F}" {
-             Name "Text0"
+             Name "PayText"
              Slot ButtonWidgetSlot "{64E0E27C0A6AE230}" {
              }
              Text "Pay"
@@ -145,14 +145,14 @@ FrameWidgetClass {
          }
         }
         VerticalLayoutWidgetClass "{64E0E27A2243168A}" {
-         Name "VerticalLayout0"
+         Name "RightButtonsLayout"
          Slot LayoutSlot "{64E0E27A22431693}" {
           Padding 0 40 0 0
           SizeMode Fill
          }
          {
           ButtonWidgetClass "{64E0E27DD3F38B39}" {
-           Name "Button1"
+           Name "DepositButton"
            Slot LayoutSlot "{64E0E27DD3F38B42}" {
             Padding 0 10 30 0
             SizeMode Fill
@@ -160,7 +160,7 @@ FrameWidgetClass {
            Color 0 0.456 0.922 1
            {
             TextWidgetClass "{64E0E27C0B7B87C3}" {
-             Name "Text0"
+             Name "DepositText"
              Slot ButtonWidgetSlot "{64E0E27C0B7B87E8}" {
              }
              Text "Deposit"
@@ -168,7 +168,7 @@ FrameWidgetClass {
            }
           }
           ButtonWidgetClass "{64E0E27DD1537018}" {
-           Name "Button0"
+           Name "OtherButton"
            Slot LayoutSlot "{64E0E27DD1537025}" {
             Padding 0 10 30 10
             SizeMode Fill
@@ -176,7 +176,7 @@ FrameWidgetClass {
            Color 0.016 0.095 0.521 1
            {
             TextWidgetClass "{64E0E27C0C0BFFEA}" {
-             Name "Text0"
+             Name "OtherText"
              Slot ButtonWidgetSlot "{64E0E27C0C0BFFF6}" {
              }
              Text "Other"
@@ -188,14 +188,14 @@ FrameWidgetClass {
        }
       }
       HorizontalLayoutWidgetClass "{64E0E27C56CEC346}" {
-       Name "HorizontalLayout1"
+       Name "BottomLayout"
        Slot LayoutSlot "{64E0E27C56CEC36C}" {
         Padding 0 115 0 0
         SizeMode Fill
        }
        {
         ButtonWidgetClass "{64E0E27FDD31BF9B}" {
-         Name "Button1"
+         Name "AmountButton"
          Slot LayoutSlot "{64E0E27FDD31BFA0}" {
           Padding 270 0 10 30
           SizeMode Fill
@@ -203,7 +203,7 @@ FrameWidgetClass {
          Color 0.93 0 0.147 1
          {
           EditBoxWidgetClass "{64E0E27ED507F3C1}" {
-           Name "EditBox0"
+           Name "AmountInput"
            Slot ButtonWidgetSlot "{64E0E27ED507F3EB}" {
             HorizontalAlign 3
             VerticalAlign 3
@@ -214,7 +214,7 @@ FrameWidgetClass {
          }
         }
         ButtonWidgetClass "{64E0E27FDB79383D}" {
-         Name "Button0"
+         Name "ExitButton"
          Slot LayoutSlot "{64E0E27FDB793843}" {
           Padding 0 0 30 30
           SizeMode Fill
@@ -222,7 +222,7 @@ FrameWidgetClass {
          Color 0.93 0 0.147 1
          {
           TextWidgetClass "{64E0E27EDE80E750}" {
-           Name "Text0"
+           Name "ExitText"
            Slot ButtonWidgetSlot "{64E0E27EDE80E762}" {
            }
            Text "Exit"

@@ -11,3 +11,16 @@ GenericEntity : "{6CD34D6526429EEC}Prefabs/Props/Furniture/BarTable_Spawn.et" {
  }
  coords 131.137 1 125.926
 }
+GenericEntity : "{93919451CF392F16}Prefabs/Props/Furniture/BarTable_ATM.et" {
+ components {
+  ActionsManagerComponent "{64E130C6C9692FEC}" {
+   additionalActions {
+    HCL_ATMAction "{64E130C7210E7D7B}" {
+     ActionTitle ""
+    }
+   }
+  }
+ }
+ coords 129.768 2.085 133.807
+ angleY 63.203
+}
