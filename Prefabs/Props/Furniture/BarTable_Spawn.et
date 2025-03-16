@@ -1,0 +1,26 @@
+GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  HCL_SpawnMenuComponent "{64E0D044A9DE6F60}" {
+   m_MenuName "Spawn Menu"
+  }
+  ActionsManagerComponent "{64E0D04458359D48}" {
+   ActionContexts {
+    UserActionContext "{64E0D04533585E9D}" {
+     ContextName "Spawn"
+     Position PointInfo "{64E0DED9BAA898D4}" {
+     }
+     Radius 2
+    }
+   }
+   additionalActions {
+    HCL_SpawnMenuAction "{64E0DEDD311C6C7D}" {
+     ParentContextList {
+      "Spawn"
+     }
+     ActionTitle "HC SPAWN"
+    }
+   }
+  }
+ }
+}

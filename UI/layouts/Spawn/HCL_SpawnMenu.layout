@@ -1,0 +1,48 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  VerticalLayoutWidgetClass "{64E0B3A6EAB7FD25}" {
+   Name "VerticalLayout0"
+   Slot FrameWidgetSlot "{64E0B3A6EAB7FD1C}" {
+    PositionX 30
+    OffsetLeft 30
+    PositionY 468
+    OffsetTop 468
+    SizeX 265
+    OffsetRight -295
+    SizeY 159
+    OffsetBottom -627
+   }
+   {
+    ButtonWidgetClass "{64E0B3A6F8FDA322}" {
+     Name "Button_S1"
+     Slot LayoutSlot "{64E0B3A6F8FDA306}" {
+     }
+     Color 1 0 0 1
+     {
+      TextWidgetClass "{64E0B3A14DFF4989}" {
+       Name "Text0"
+       Slot ButtonWidgetSlot "{64E0B3A14DFF49FD}" {
+       }
+       Text "Spawn 1"
+      }
+     }
+    }
+    ButtonWidgetClass "{64E0B3A11FEA6A92}" {
+     Name "Button_S2"
+     Slot LayoutSlot "{64E0B3A6F8FDA306}" {
+     }
+     Color 1 0 0 1
+     {
+      TextWidgetClass "{64E0B3A159FD785A}" {
+       Name "Text0"
+       Slot ButtonWidgetSlot "{64E0B3A159FD78A4}" {
+       }
+       Text "Spawn 2"
+      }
+     }
+    }
+   }
+  }
+ }
+}
