@@ -2,53 +2,112 @@
 class HCL_GatherPeachAction : ScriptedUserAction
 {
     // Resource path to the peach item prefab
-    protected ResourceName m_PeachPrefab = "{64E34969A5EB7065}prefabs/items/food/hcl_peach.et";
+    protected ResourceName m_PeachPrefab = "{64E0ABC569170B6A}prefabs/items/food/hcl_peach.et";
+    
+    // Cooldown time in milliseconds (10 seconds)
+    protected float m_fCooldownTime = 10000.0;
+    
+    // Last time a peach was gathered - stored as static variable for persistence
+    static protected float s_fLastGatherTime = 0;
     
     //------------------------------------------------------------------------------------------------
-    override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity) 
-    {   
-        SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerController());
-        if (!playerController || pUserEntity != playerController.GetMainEntity()) 
+    override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
+    {
+        if (!GetGame().InPlayMode())
+            return;
+            
+        // Get inventory manager
+        SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(pUserEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+        if (!inventoryManager)
+            return;
+            
+        // Record current time for cooldown
+        s_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
+            
+        // Spawn peach
+        Resource peachResource = Resource.Load(m_PeachPrefab);
+        if (!peachResource)
+            return;
+            
+        EntitySpawnParams spawnParams = new EntitySpawnParams();
+        spawnParams.TransformMode = ETransformMode.WORLD;
+        
+        vector mat[4];
+        pUserEntity.GetWorldTransform(mat);
+        spawnParams.Transform = mat;
+        
+        IEntity peachEntity = GetGame().SpawnEntityPrefab(peachResource, GetGame().GetWorld(), spawnParams);
+        if (!peachEntity)
             return;
         
-        // Success - spawn the peach item
-        Resource peachResource = Resource.Load(m_PeachPrefab);
-        if (peachResource)
+        // Check if we can insert the item first
+        BaseInventoryStorageComponent storage = inventoryManager.FindStorageForItem(peachEntity, EStoragePurpose.PURPOSE_ANY);
+        if (!storage || !inventoryManager.CanInsertItemInStorage(peachEntity, storage))
         {
-            // Get position for the new peach (slightly offset from the player)
-            vector playerPos = pUserEntity.GetOrigin();
-            vector offset = pUserEntity.GetTransformAxis(0) * 0.5; // 0.5m in front of player
-            
-            // Spawn the peach
-            EntitySpawnParams spawnParams = new EntitySpawnParams();
-            spawnParams.TransformMode = ETransformMode.WORLD;
-            spawnParams.Transform[3] = playerPos + offset;
-            
-            IEntity peachEntity = GetGame().SpawnEntityPrefab(peachResource, null, spawnParams);
+            // Delete the spawned peach if we can't add it to inventory
             if (peachEntity)
-            {
-                // Notify player of success
-                SCR_HintManagerComponent.GetInstance().ShowCustomHint("You found a peach!", "Harvest Success", 3.0);
-            }
+                GetGame().GetWorld().DeleteEntity(peachEntity);
+                
+            return;
         }
-    }
-    
-    //------------------------------------------------------------------------------------------------
-    override bool CanBeShownScript(IEntity user)
-    {
-        return true;
+            
+        // Add to inventory
+        inventoryManager.InsertItem(peachEntity);
     }
     
     //------------------------------------------------------------------------------------------------
     override bool CanBePerformedScript(IEntity user)
     {
+        if (!user)
+            return false;
+            
+        // Check if user has inventory manager
+        SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(user.FindComponent(SCR_InventoryStorageManagerComponent));
+        if (!inventoryManager)
+            return false;
+        
+        // Check cooldown
+        float currentTime = GetGame().GetWorld().GetWorldTime();
+        float timeRemaining = s_fLastGatherTime + m_fCooldownTime - currentTime;
+        
+        // Check if still on cooldown
+        if (timeRemaining > 0)
+            return false;
+        
+        return true;
+    }
+    
+    //------------------------------------------------------------------------------------------------
+    override bool CanBeShownScript(IEntity user)
+    {
+        // Always show the action even during cooldown
+        if (!user)
+            return false;
+            
+        // Check if user has inventory manager
+        SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(user.FindComponent(SCR_InventoryStorageManagerComponent));
+        if (!inventoryManager)
+            return false;
+            
         return true;
     }
     
     //------------------------------------------------------------------------------------------------
     override bool GetActionNameScript(out string outName)
     {
-        outName = "Gather Peach";
+        // Check if action is on cooldown
+        float currentTime = GetGame().GetWorld().GetWorldTime();
+        if (currentTime < s_fLastGatherTime + m_fCooldownTime)
+        {
+            // Calculate remaining cooldown time in seconds
+            int remainingTime = Math.Round((s_fLastGatherTime + m_fCooldownTime - currentTime)/1000);
+            outName = string.Format("Gather Peach (Available in %1 sec)", remainingTime);
+        }
+        else
+        {
+            outName = "Gather Peach";
+        }
+        
         return true;
     }
-} 
+}
