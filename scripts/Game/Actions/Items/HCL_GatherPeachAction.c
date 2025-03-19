@@ -7,8 +7,17 @@ class HCL_GatherPeachAction : ScriptedUserAction
     // Cooldown time in milliseconds (10 seconds)
     protected float m_fCooldownTime = 10000.0;
     
-    // Last time a peach was gathered - stored as static variable for persistence
-    static protected float s_fLastGatherTime = 0;
+    // Last time a peach was gathered - instance specific
+    protected float m_fLastGatherTime = 0;
+    
+    //------------------------------------------------------------------------------------------------
+    override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
+    {
+        super.Init(pOwnerEntity, pManagerComponent);
+        // Initialize the timer to current world time
+        m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
+    }
+	
     
     //------------------------------------------------------------------------------------------------
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
@@ -22,7 +31,7 @@ class HCL_GatherPeachAction : ScriptedUserAction
             return;
             
         // Record current time for cooldown
-        s_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
+        m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
             
         // Spawn peach
         Resource peachResource = Resource.Load(m_PeachPrefab);
@@ -46,7 +55,11 @@ class HCL_GatherPeachAction : ScriptedUserAction
         {
             // Delete the spawned peach if we can't add it to inventory
             if (peachEntity)
-                GetGame().GetWorld().DeleteEntity(peachEntity);
+            {
+                RplComponent rplComp = RplComponent.Cast(peachEntity.FindComponent(RplComponent));
+                if (rplComp)
+                    RplComponent.DeleteRplEntity(peachEntity, false);
+            }
                 
             return;
         }
@@ -68,7 +81,7 @@ class HCL_GatherPeachAction : ScriptedUserAction
         
         // Check cooldown
         float currentTime = GetGame().GetWorld().GetWorldTime();
-        float timeRemaining = s_fLastGatherTime + m_fCooldownTime - currentTime;
+        float timeRemaining = m_fLastGatherTime + m_fCooldownTime - currentTime;
         
         // Check if still on cooldown
         if (timeRemaining > 0)
@@ -97,10 +110,10 @@ class HCL_GatherPeachAction : ScriptedUserAction
     {
         // Check if action is on cooldown
         float currentTime = GetGame().GetWorld().GetWorldTime();
-        if (currentTime < s_fLastGatherTime + m_fCooldownTime)
+        if (currentTime < m_fLastGatherTime + m_fCooldownTime)
         {
             // Calculate remaining cooldown time in seconds
-            int remainingTime = Math.Round((s_fLastGatherTime + m_fCooldownTime - currentTime)/1000);
+            int remainingTime = Math.Round((m_fLastGatherTime + m_fCooldownTime - currentTime)/1000);
             outName = string.Format("Gather Peach (Available in %1 sec)", remainingTime);
         }
         else
