@@ -1,28 +1,36 @@
 [BaseContainerProps()]
-class HCL_GatherPeachAction : ScriptedUserAction
+class HCL_GatherResourceAction : ScriptedUserAction
 {
-    // Resource path to the peach item prefab
-    protected ResourceName m_PeachPrefab = "{64E0ABC569170B6A}prefabs/items/food/hcl_peach.et";
+    // Component that contains resource information
+    protected HCL_GatherableResourceComponent m_ResourceComponent;
     
-    // Cooldown time in milliseconds (10 seconds)
-    protected float m_fCooldownTime = 10000.0;
-    
-    // Last time a peach was gathered - instance specific
+    // Local timer for cooldown
     protected float m_fLastGatherTime = 0;
     
     //------------------------------------------------------------------------------------------------
     override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
     {
         super.Init(pOwnerEntity, pManagerComponent);
-        // Initialize the timer to current world time
-        m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
+        
+        // Find the resource component
+        m_ResourceComponent = HCL_GatherableResourceComponent.Cast(pOwnerEntity.FindComponent(HCL_GatherableResourceComponent));
+        if (!m_ResourceComponent) 
+        {
+            Print("Error! Could not find Gatherable Resource Component for this action.", LogLevel.ERROR);
+        }
+        
+        // Initialize the timer
+        m_fLastGatherTime = 0.0;
     }
-	
     
     //------------------------------------------------------------------------------------------------
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
     {
         if (!GetGame().InPlayMode())
+            return;
+            
+        // Check if we have the resource component
+        if (!m_ResourceComponent)
             return;
             
         // Get inventory manager
@@ -33,9 +41,14 @@ class HCL_GatherPeachAction : ScriptedUserAction
         // Record current time for cooldown
         m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
             
-        // Spawn peach
-        Resource peachResource = Resource.Load(m_PeachPrefab);
-        if (!peachResource)
+        // Get resource prefab from component
+        ResourceName resourcePrefab = m_ResourceComponent.GetResourcePrefab();
+        if (resourcePrefab.IsEmpty())
+            return;
+            
+        // Spawn resource item
+        Resource resourceItem = Resource.Load(resourcePrefab);
+        if (!resourceItem)
             return;
             
         EntitySpawnParams spawnParams = new EntitySpawnParams();
@@ -45,33 +58,33 @@ class HCL_GatherPeachAction : ScriptedUserAction
         pUserEntity.GetWorldTransform(mat);
         spawnParams.Transform = mat;
         
-        IEntity peachEntity = GetGame().SpawnEntityPrefab(peachResource, GetGame().GetWorld(), spawnParams);
-        if (!peachEntity)
+        IEntity resourceEntity = GetGame().SpawnEntityPrefab(resourceItem, GetGame().GetWorld(), spawnParams);
+        if (!resourceEntity)
             return;
         
         // Check if we can insert the item first
-        BaseInventoryStorageComponent storage = inventoryManager.FindStorageForItem(peachEntity, EStoragePurpose.PURPOSE_ANY);
-        if (!storage || !inventoryManager.CanInsertItemInStorage(peachEntity, storage))
+        BaseInventoryStorageComponent storage = inventoryManager.FindStorageForItem(resourceEntity, EStoragePurpose.PURPOSE_ANY);
+        if (!storage || !inventoryManager.CanInsertItemInStorage(resourceEntity, storage))
         {
-            // Delete the spawned peach if we can't add it to inventory
-            if (peachEntity)
+            // Delete the spawned resource if we can't add it to inventory
+            if (resourceEntity)
             {
-                RplComponent rplComp = RplComponent.Cast(peachEntity.FindComponent(RplComponent));
+                RplComponent rplComp = RplComponent.Cast(resourceEntity.FindComponent(RplComponent));
                 if (rplComp)
-                    RplComponent.DeleteRplEntity(peachEntity, false);
+                    RplComponent.DeleteRplEntity(resourceEntity, false);
             }
                 
             return;
         }
             
         // Add to inventory
-        inventoryManager.InsertItem(peachEntity);
+        inventoryManager.InsertItem(resourceEntity);
     }
     
     //------------------------------------------------------------------------------------------------
     override bool CanBePerformedScript(IEntity user)
     {
-        if (!user)
+        if (!user || !m_ResourceComponent)
             return false;
             
         // Check if user has inventory manager
@@ -81,7 +94,8 @@ class HCL_GatherPeachAction : ScriptedUserAction
         
         // Check cooldown
         float currentTime = GetGame().GetWorld().GetWorldTime();
-        float timeRemaining = m_fLastGatherTime + m_fCooldownTime - currentTime;
+        float cooldownTime = m_ResourceComponent.GetCooldownTime();
+        float timeRemaining = m_fLastGatherTime + cooldownTime - currentTime;
         
         // Check if still on cooldown
         if (timeRemaining > 0)
@@ -94,7 +108,7 @@ class HCL_GatherPeachAction : ScriptedUserAction
     override bool CanBeShownScript(IEntity user)
     {
         // Always show the action even during cooldown
-        if (!user)
+        if (!user || !m_ResourceComponent)
             return false;
             
         // Check if user has inventory manager
@@ -108,17 +122,28 @@ class HCL_GatherPeachAction : ScriptedUserAction
     //------------------------------------------------------------------------------------------------
     override bool GetActionNameScript(out string outName)
     {
+        if (!m_ResourceComponent)
+        {
+            outName = "Gather Resource";
+            return true;
+        }
+        
+        // Get resource name from component
+        string resourceName = m_ResourceComponent.GetResourceName();
+        
         // Check if action is on cooldown
         float currentTime = GetGame().GetWorld().GetWorldTime();
-        if (currentTime < m_fLastGatherTime + m_fCooldownTime)
+        float cooldownTime = m_ResourceComponent.GetCooldownTime();
+        
+        if (currentTime < m_fLastGatherTime + cooldownTime)
         {
             // Calculate remaining cooldown time in seconds
-            int remainingTime = Math.Round((m_fLastGatherTime + m_fCooldownTime - currentTime)/1000);
-            outName = string.Format("Gather Peach (Available in %1 sec)", remainingTime);
+            int remainingTime = Math.Round((m_fLastGatherTime + cooldownTime - currentTime)/1000);
+            outName = string.Format("Gather %1 (Available in %2 sec)", resourceName, remainingTime);
         }
         else
         {
-            outName = "Gather Peach";
+            outName = string.Format("Gather %1", resourceName);
         }
         
         return true;
