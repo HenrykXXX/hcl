@@ -24,3 +24,11 @@ GenericEntity : "{93919451CF392F16}Prefabs/Props/Furniture/BarTable_ATM.et" {
  coords 129.768 2.085 133.807
  angleY 63.203
 }
+$grp Tree : "{F422A8E1894722A1}Prefabs/Vegetation/Tree/HCL_t_prunus_domestica_2s.et" {
+ {
+  coords 119.457 0 144.136
+ }
+ {
+  coords 112.316 0 142.012
+ }
+}
