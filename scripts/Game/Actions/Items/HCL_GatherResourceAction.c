@@ -38,9 +38,6 @@ class HCL_GatherResourceAction : ScriptedUserAction
         if (!inventoryManager)
             return;
             
-        // Record current time for cooldown
-        m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
-            
         // Get resource prefab from component
         ResourceName resourcePrefab = m_ResourceComponent.GetResourcePrefab();
         if (resourcePrefab.IsEmpty())
@@ -62,6 +59,9 @@ class HCL_GatherResourceAction : ScriptedUserAction
         if (!resourceEntity)
             return;
         
+        // Get the resource name for hints
+        string resourceName = m_ResourceComponent.GetResourceName();
+        
         // Check if we can insert the item first
         BaseInventoryStorageComponent storage = inventoryManager.FindStorageForItem(resourceEntity, EStoragePurpose.PURPOSE_ANY);
         if (!storage || !inventoryManager.CanInsertItemInStorage(resourceEntity, storage))
@@ -73,12 +73,21 @@ class HCL_GatherResourceAction : ScriptedUserAction
                 if (rplComp)
                     RplComponent.DeleteRplEntity(resourceEntity, false);
             }
+            
+            // Show hint about not having space
+            SCR_HintManagerComponent.ShowCustomHint(string.Format("Cannot gather %1. Not enough inventory space.", resourceName), "Inventory Full", 3.0);
                 
             return;
         }
             
         // Add to inventory
         inventoryManager.InsertItem(resourceEntity);
+        
+        // Only apply cooldown after successful gathering
+        m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
+        
+        // Show success hint
+        SCR_HintManagerComponent.ShowCustomHint(string.Format("Gathered %1", resourceName), "Resource Gathered", 2.0);
     }
     
     //------------------------------------------------------------------------------------------------
