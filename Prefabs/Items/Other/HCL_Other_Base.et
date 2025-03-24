@@ -1,0 +1,31 @@
+GenericEntity : "{C95E11C60810F432}Prefabs/Items/Core/Item_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "BaseFood"
+     Description "BaseFoodDSC"
+     Icon "{A4A692135635424E}UI/Imagesets/Commanding/Commanding_Icons.imageset"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     SizeSetupStrategy Volume
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{64E8DC48F122249A}" {
+    }
+    CommonItemType "FOOD"
+   }
+  }
+  MeshObject "{64E8DC48F12224AE}" {
+   Object "{A47ED22E6647430A}Assets/Items/Food/ArmyCrackers_Soviet_01.xob"
+  }
+  RigidBody "{64E8DC48F12224AB}" {
+   LinearDamping 0.5
+   AngularDamping 0.5
+   AngularSleepingThreashold 1
+   ModelGeometry 1
+   CCDRadius 0.015
+  }
+ }
+ coords 3118.714 15.855 2738.387
+}

@@ -1,0 +1,19 @@
+GenericEntity : "{DA05DD7F694F14D4}Prefabs/Items/Other/HCL_Other_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "GoldBar"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 12
+    }
+    CommonItemType "NONE"
+   }
+  }
+  MeshObject "{64E8DC48F12224AE}" {
+   Object "{1964E216ACB15403}Assets/Props/Items/IronBar.xob"
+  }
+ }
+}
