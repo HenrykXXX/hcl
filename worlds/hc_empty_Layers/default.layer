@@ -1,3 +1,14 @@
+$grp GenericEntity : "{6258C73D3F60EDFA}Prefabs/Items/Food/HCL_Peach.et" {
+ {
+  coords 130.166 1 124.579
+ }
+ {
+  coords 130.854 1 124.292
+ }
+ {
+  coords 130.404 2.018 125.947
+ }
+}
 GenericEntity : "{6CD34D6526429EEC}Prefabs/Props/Furniture/BarTable_Spawn.et" {
  components {
   HCL_SpawnMenuComponent "{64E0D044A9DE6F60}" {

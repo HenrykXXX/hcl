@@ -32,7 +32,7 @@ class HCL_GatherResourceAction : ScriptedUserAction
         // Check if we have the resource component
         if (!m_ResourceComponent)
             return;
-            
+				
         // Get inventory manager
         SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(pUserEntity.FindComponent(SCR_InventoryStorageManagerComponent));
         if (!inventoryManager)
@@ -79,9 +79,11 @@ class HCL_GatherResourceAction : ScriptedUserAction
                 
             return;
         }
+		
+		
+		
+		m_ResourceComponent.TurnOn(resourceEntity, inventoryManager);
             
-        // Add to inventory
-        inventoryManager.InsertItem(resourceEntity);
         
         // Only apply cooldown after successful gathering
         m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
@@ -157,4 +159,5 @@ class HCL_GatherResourceAction : ScriptedUserAction
         
         return true;
     }
+
 }
