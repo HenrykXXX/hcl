@@ -4,17 +4,11 @@ GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
   InventoryItemComponent "{5222EB4D0C73006B}" {
    Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
     ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
-     Name "WheatBag"
-     Description ""
-    }
-    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
-     Weight 1
     }
    }
   }
   MeshObject "{64E349690B4E0D2D}" {
-   Object "{5DBEC222CF6955F3}Assets/Props/plants/WheatBag.xob"
+   Object "{710A1373D03D1B06}Prefabs/Props/OresAndIngots/SM_Ore_Iron.xob"
   }
  }
- scale 11.042
 }

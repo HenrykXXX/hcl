@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{738C83539DF54F37}Prefabs/Items/Food/HCL_Food_RiseBag.et"
+ Name "{35D150DDFECC7C65}Prefabs/Items/Ore/HCL_Ingot_Base.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

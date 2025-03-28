@@ -4,14 +4,12 @@ GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
   InventoryItemComponent "{5222EB4D0C73006B}" {
    Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
     ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
-     Name "Potato"
-     Description ""
+     Description "Can be sold or processed into other items."
     }
    }
   }
   MeshObject "{64E349690B4E0D2D}" {
-   Object "{CF234828626E78DA}Assets/Props/Items/Potato.xob"
+   Object "{08F114C30BA68D57}Prefabs/Props/OresAndIngots/SM_Ingot_Iron.xob"
   }
  }
- scale 0.035
 }

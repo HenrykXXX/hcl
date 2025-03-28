@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{38C8C7CF241E86AB}Prefabs/Items/Food/HCL_Food_Grape.et"
+ Name "{8D15E0BF59DFEACB}Prefabs/Items/Ingots/HCL_Ingot_Iron.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }
