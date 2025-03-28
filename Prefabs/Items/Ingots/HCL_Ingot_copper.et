@@ -4,12 +4,12 @@ GenericEntity : "{35D150DDFECC7C65}Prefabs/Items/Ingots/HCL_Ingot_Base.et" {
   InventoryItemComponent "{5222EB4D0C73006B}" {
    Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
     ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
-     Name "Iron ingot"
+     Name "Copper ingot"
     }
    }
   }
   MeshObject "{64E349690B4E0D2D}" {
-   Object "{08F114C30BA68D57}Prefabs/Props/OresAndIngots/Iron/SM_Ingot_Iron.xob"
+   Object "{557679E673E8179F}Prefabs/Props/OresAndIngots/Copper/SM_Ingot_Copper.xob"
   }
  }
 }

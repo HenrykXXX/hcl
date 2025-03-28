@@ -9,7 +9,7 @@ GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
    }
   }
   MeshObject "{64E349690B4E0D2D}" {
-   Object "{08F114C30BA68D57}Prefabs/Props/OresAndIngots/SM_Ingot_Iron.xob"
+   Object "{08F114C30BA68D57}Prefabs/Props/OresAndIngots/Iron/SM_Ingot_Iron.xob"
   }
  }
 }
