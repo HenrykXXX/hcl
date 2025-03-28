@@ -1,0 +1,15 @@
+GenericEntity : "{35D150DDFECC7C65}Prefabs/Items/Ingots/HCL_Ingot_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Gold ingot"
+    }
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{91B5B80DFBC0561D}Prefabs/Props/OresAndIngots/Gold/SM_Ingot_Gold.xob"
+  }
+ }
+}
