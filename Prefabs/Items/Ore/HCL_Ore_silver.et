@@ -1,0 +1,15 @@
+GenericEntity : "{60B5F71E3FD44602}Prefabs/Items/Ore/HCL_Ore_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Silver ore"
+    }
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{DF9FD22D957F8E41}Prefabs/Props/OresAndIngots/Silver/SM_Ore_Silver.xob"
+  }
+ }
+}
