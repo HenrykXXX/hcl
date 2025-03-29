@@ -1,0 +1,16 @@
+SCR_LoadoutManager {
+ ID "64FB5549740E0C2F"
+ components {
+  RplComponent "{64FB5549740E0BD4}" {
+   Streamable Disabled
+  }
+ }
+ Flags 0
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{64FB554988D1277D}" {
+   m_sLoadoutResource "{1CBD1A91FA202C78}Prefabs/Characters/Core/HCL_Character_Base.et"
+   m_sLoadoutImage "{D62F1D198795297A}Assets/Props/Items/Materials/Peach.fbm/peach_ao.edds"
+   m_sAffiliatedFaction "US"
+  }
+ }
+}
