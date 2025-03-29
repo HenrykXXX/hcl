@@ -1,0 +1,21 @@
+GenericEntity : "{D687CCF9E52FBE2D}Prefabs/Props/Civilian/BeerBottle_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{19A79CF27D6F1AEF}Prefabs/Vehicles/Wheeled/M923A1/SingeYellowcake/SingleYellowcake.xob"
+   Materials {
+    MaterialAssignClass "{64FB137701D6FDA8}" {
+     SourceMaterial "BeerBottle_01"
+     AssignedMaterial "{A3B7F4DA5C108E3D}Assets/Props/Civilian/BeerBottle_01/Data/BeerBottle_01_empty_brown.emat"
+    }
+   }
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   Active Inactive
+   ResponseIndex "Normal"
+   Static 1
+   Kinematic 0
+  }
+ }
+ coords 3.244 3.751 -0.99
+}

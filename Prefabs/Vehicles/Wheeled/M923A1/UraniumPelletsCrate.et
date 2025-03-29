@@ -1,0 +1,25 @@
+GenericEntity : "{D687CCF9E52FBE2D}Prefabs/Props/Civilian/BeerBottle_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{9AF5531941061C77}Prefabs/Vehicles/Wheeled/M923A1/Crate/Crate.xob"
+   Materials {
+    MaterialAssignClass "{64FB1CE73B98236B}" {
+     SourceMaterial "BeerBottle_01"
+     AssignedMaterial "{A3B7F4DA5C108E3D}Assets/Props/Civilian/BeerBottle_01/Data/BeerBottle_01_empty_brown.emat"
+    }
+    MaterialAssignClass "{64FB1CE72B20C446}" {
+     SourceMaterial "HazardMat"
+     AssignedMaterial "{3030CECB2B33F178}Prefabs/Vehicles/Wheeled/M923A1/FuelRodsModel/Data/NuHazard.emat"
+    }
+   }
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   Active Inactive
+   ResponseIndex "Normal"
+   Static 1
+   Kinematic 0
+  }
+ }
+ coords 3.244 3.751 -0.99
+}

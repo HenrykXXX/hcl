@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{7741DA7F4C5217D1}Prefabs/Vehicles/Wheeled/M923A1/Crate/Data/Wooden Crate_Crate_BaseColor.edds"
+ NMOMap "{9188D1EE996A660C}Prefabs/Vehicles/Wheeled/M923A1/Crate/Data/Wooden Crate_Crate_Normal.edds"
+}

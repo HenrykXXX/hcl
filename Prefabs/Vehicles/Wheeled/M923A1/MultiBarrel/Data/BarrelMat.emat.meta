@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{2FBF4437AEA7FF31}Prefabs/Vehicles/Wheeled/M923A1/MultiBarrel/Data/BarrelMat.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

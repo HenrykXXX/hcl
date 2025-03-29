@@ -1,0 +1,5 @@
+MatPBRBasic {
+ AlphaTest 0.093
+ BCRMap "{E2C7002A84BEB353}Prefabs/Vehicles/Wheeled/M923A1/Barrel/Data/Uo2.edds"
+ OpacityMap "{E2C7002A84BEB353}Prefabs/Vehicles/Wheeled/M923A1/Barrel/Data/Uo2.edds"
+}
