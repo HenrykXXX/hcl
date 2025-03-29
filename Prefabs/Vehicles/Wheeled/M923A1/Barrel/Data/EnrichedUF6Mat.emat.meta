@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D0B4BD94985F2A80}Prefabs/Vehicles/Wheeled/M923A1/Barrel/Data/EnrichedUF6Mat.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

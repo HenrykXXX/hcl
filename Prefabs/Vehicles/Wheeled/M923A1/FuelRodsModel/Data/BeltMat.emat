@@ -1,0 +1,4 @@
+MatPBRBasic {
+ Cull none
+ BCRMap "{58E9176FD1155B4E}Prefabs/Vehicles/Wheeled/M923A1/FuelRodsModel/Data/technicka-tkanina-motiv-01.edds"
+}

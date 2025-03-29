@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{32B0EC946F9AD604}Prefabs/Vehicles/Wheeled/M923A1/MultiCrate/Data/Material.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

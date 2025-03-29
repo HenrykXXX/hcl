@@ -1,0 +1,5 @@
+MatPBRBasic {
+ AlphaTest 0.197
+ BCRMap "{568B602ED4AB6075}Prefabs/Vehicles/Wheeled/M923A1/FuelRodsModel/Data/NuHazard.edds"
+ OpacityMap "{735DC8F945DD527B}Prefabs/Vehicles/Wheeled/M923A1/FuelRodsModel/Data/NuHazardAlpgha.edds"
+}

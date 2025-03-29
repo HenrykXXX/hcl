@@ -1,0 +1,56 @@
+MetaFileClass {
+ Name "{9AF5531941061C77}Prefabs/Vehicles/Wheeled/M923A1/Crate/Crate.xob"
+ Configurations {
+  FBXResourceClass PC {
+   MaterialAssigns {
+    MaterialAssignClass "{64FB1CE7118C82D4}" {
+     SourceMaterial "HazardMat"
+     AssignedMaterial "{3424930E84E131BA}Prefabs/Vehicles/Wheeled/M923A1/Crate/Data/HazardMat.emat"
+    }
+    MaterialAssignClass "{64FB1CE7118C82EB}" {
+     SourceMaterial "CrateTextMat"
+     AssignedMaterial "{8768CB484ED209D6}Prefabs/Vehicles/Wheeled/M923A1/Crate/Data/CrateTextMat.emat"
+    }
+    MaterialAssignClass "{64FB1CE7118C82E1}" {
+     SourceMaterial "Material"
+     AssignedMaterial "{C5AE76BB3DFD71E0}Prefabs/Vehicles/Wheeled/M923A1/Crate/Data/Material.emat"
+    }
+   }
+   MeshParams {
+    MeshParam "Plane.001" {
+    }
+   }
+   GeometryParams {
+    GeometryParam "UBX_ Cube" {
+     SurfaceProperties {
+      "{536BF67B2052B869}material/metal.gamemat"
+     }
+     Mass 0
+     Margin 0
+    }
+   }
+   Common TXOCommonClass "{64FB1CE7118506F9}" : "{0877E7C4BB2B2C9A}Configs/System/ResourceTypes/PC/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass XBOX_ONE : PC {
+   Common TXOCommonClass "{64FB1CE71185067B}" : "{9D5B6207F7628CE2}Configs/System/ResourceTypes/XBOX_ONE/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass XBOX_SERIES : PC {
+   Common TXOCommonClass "{64FB1CE7118519A4}" : "{DD9F02115C764647}Configs/System/ResourceTypes/XBOX_SERIES/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass PS4 : PC {
+   Common TXOCommonClass "{64FB1CE7118519DC}" : "{53EC476BC921D99A}Configs/System/ResourceTypes/PS4/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass PS5 : PC {
+   Common TXOCommonClass "{64FB1CE7118519FE}" : "{F62AA8E7B8EA9D26}configs/ResourceTypes/PS5/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass HEADLESS : PC {
+   Common TXOCommonClass "{64FB1CE71185191A}" : "{3A5B3356978039E8}Configs/System/ResourceTypes/HEADLESS/MeshObjectCommon.conf" {
+   }
+  }
+ }
+}

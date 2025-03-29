@@ -1,0 +1,6 @@
+MatPBRBasic {
+ Cull none
+ AlphaTest 0.747
+ BCRMap "{6A6AA84AE08BBE11}Prefabs/Vehicles/Wheeled/M923A1/FuelRodsModel/Data/hcl.edds"
+ OpacityMap "{2C0B1303DFFB4C1B}Prefabs/Vehicles/Wheeled/M923A1/FuelRodsModel/Data/hclAlpha.edds"
+}

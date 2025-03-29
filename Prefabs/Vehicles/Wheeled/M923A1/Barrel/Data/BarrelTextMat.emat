@@ -1,0 +1,5 @@
+MatPBRBasic {
+ AlphaTest 0.093
+ BCRMap "{A7143C7D1F02162F}Prefabs/Vehicles/Wheeled/M923A1/SingeYellowcake/Data/Yellowcake.edds"
+ OpacityMap "{A7143C7D1F02162F}Prefabs/Vehicles/Wheeled/M923A1/SingeYellowcake/Data/Yellowcake.edds"
+}

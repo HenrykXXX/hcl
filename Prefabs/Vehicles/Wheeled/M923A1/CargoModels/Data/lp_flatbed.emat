@@ -1,0 +1,5 @@
+MatPBRBasic {
+ BCRMap "{49615DC6B93DEF4D}Prefabs/Vehicles/Wheeled/M923A1/CargoModels/lp_trailer_diffuse.edds"
+ NormalPower 1.682
+ NMOMap "{542E5C92E309023B}Prefabs/Vehicles/Wheeled/M923A1/CargoModels/lp_trailer_normal.edds"
+}

@@ -1,0 +1,6 @@
+MatPBRBasic {
+ SpecularMul 0
+ RoughnessScale 5
+ MetalnessScale 5
+ BCRMap "{2CBD95B1CEDF4B30}Prefabs/Vehicles/Wheeled/M923A1/MapaUranu.edds"
+}
