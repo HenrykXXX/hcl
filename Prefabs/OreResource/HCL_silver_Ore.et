@@ -1,0 +1,14 @@
+Tree : "{21B101B6B43F6B7B}Prefabs/OreResource/HCL_Master_Ore.et" {
+ ID "0F2AA6B42CA78628"
+ components {
+  HCL_GatherableResourceComponent "{64F910C22984204B}" {
+   m_ResourcePrefab "{4C4DC886B0293BDC}Prefabs/Items/Ore/HCL_Ore_silver.et"
+   m_sResourceName "Silver ore"
+  }
+  MeshObject "{64F910C229842054}" {
+   Object "{576A450CAA2A3837}Prefabs/Props/OresAndIngots/Silver/SM_OreDeposit_Silver_GreyRock.xob"
+  }
+ }
+ Enabled 0
+ "Melee multiplier" -77.6
+}

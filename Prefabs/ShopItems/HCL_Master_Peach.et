@@ -1,0 +1,8 @@
+Tree : "{CD7707575380E92F}Prefabs/ShopItems/0HCL_Master_ShopItem.et" {
+ ID "0F2AA6B42CA78628"
+ components {
+  MeshObject "{64F910CAA8718168}" {
+   Object "{756D90C0EECCB83F}Prefabs/Props/Vegetation/Peach.xob"
+  }
+ }
+}

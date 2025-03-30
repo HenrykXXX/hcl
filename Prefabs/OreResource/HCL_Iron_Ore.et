@@ -1,0 +1,18 @@
+Tree : "{21B101B6B43F6B7B}Prefabs/OreResource/HCL_Master_Ore.et" {
+ ID "0F2AA6B42CA78628"
+ components {
+  HCL_GatherableResourceComponent "{64F910C22984204B}" {
+   m_ResourcePrefab "{88215577A1FFFF57}Prefabs/Items/Ore/HCL_Ore_Iron.et"
+   m_sResourceName "Iron Ore"
+  }
+  MeshObject "{64F910C229842054}" {
+   Object "{563D1071CFC18436}Prefabs/Props/OresAndIngots/Iron/SM_OreDeposit_Iron_GreyRock.xob"
+   Materials {
+    MaterialAssignClass "{64F930EB56258184}" {
+     SourceMaterial "Fbx_Default_Material"
+     AssignedMaterial "{34E13B4BEA157881}Prefabs/Props/OresAndIngots/Iron/SM_OreDeposit_Iron_GreyRock_Mat.emat"
+    }
+   }
+  }
+ }
+}

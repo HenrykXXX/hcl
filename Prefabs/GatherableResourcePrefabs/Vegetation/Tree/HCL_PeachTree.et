@@ -1,0 +1,9 @@
+Tree : "{F422A8E1894722A1}Prefabs/GatherableResourcePrefabs/HCL_Master_GatherableResource.et" {
+ ID "0F2AA6B42CA78628"
+ components {
+  HCL_GatherableResourceComponent "{64E747953B723C96}" {
+   m_ResourcePrefab "{5D66454327251DE0}Prefabs/Items/Food/HCL_Food_Peach.et"
+  }
+ }
+ Enabled 1
+}

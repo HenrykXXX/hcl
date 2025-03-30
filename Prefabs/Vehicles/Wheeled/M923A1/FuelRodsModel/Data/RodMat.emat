@@ -1,8 +1,0 @@
-MatPBRBasic {
- Color 0.171 0.171 0.171 1
- SpecularMul 5
- RoughnessScale 0.225
- MetalnessScale 5
- NormalPower 0.9
- NMOMap "{AB46D26F5C81B5A4}Assets/_SharedData/DetailMask/ST_Noise_01_Mask1.edds"
-}

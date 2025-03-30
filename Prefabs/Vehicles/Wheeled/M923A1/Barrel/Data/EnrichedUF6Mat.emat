@@ -1,5 +1,0 @@
-MatPBRBasic {
- AlphaTest 0.093
- BCRMap "{E167FF4AEDB33C6C}Prefabs/Vehicles/Wheeled/M923A1/Barrel/Data/EnrichedUF6.edds"
- OpacityMap "{E167FF4AEDB33C6C}Prefabs/Vehicles/Wheeled/M923A1/Barrel/Data/EnrichedUF6.edds"
-}

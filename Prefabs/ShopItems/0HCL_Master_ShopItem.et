@@ -1,0 +1,16 @@
+Tree : "{388AE316D09D0680}Prefabs/Vegetation/Core/Tree_Base.et" {
+ ID "0F2AA6B42CA78628"
+ components {
+  MeshObject "{64F910CAA8718168}" {
+   Object "{93805DF1EFA4F212}Assets/Props/Civilian/BeerBottle_01/BeerBottle_01_Empty.xob"
+   LODFactors {
+    200 20 15 10 4
+   }
+  }
+  RplComponent "{64F910CAA8718179}" {
+  }
+ }
+ coords 937.976 37.626 2823.277
+ SoundType Leafy
+ m_iFoliageHeight 3
+}
