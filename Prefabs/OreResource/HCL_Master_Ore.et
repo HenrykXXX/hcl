@@ -20,7 +20,7 @@ Tree : "{388AE316D09D0680}Prefabs/Vegetation/Core/Tree_Base.et" {
     UserActionContext "{64F910C22984206E}" {
      ContextName "GatherResource"
      Position PointInfo "{64F910C229842068}" {
-      Offset 0 0 1
+      Offset 0 0.5 0
      }
      Radius 2
     }

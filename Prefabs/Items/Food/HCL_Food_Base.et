@@ -5,7 +5,7 @@ GenericEntity : "{C95E11C60810F432}Prefabs/Items/Core/Item_Base.et" {
    Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
     ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
      Name "BaseFood"
-     Description "BaseFoodDSC"
+     Description ""
      Icon "{A4A692135635424E}UI/Imagesets/Commanding/Commanding_Icons.imageset"
     }
     ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {

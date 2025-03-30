@@ -8,7 +8,7 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
    m_PlayerBalance 69
   }
   MeshObject "{5872F0EB7FA40561}" {
-   Object "{053D51375DC10586}Assets/Props/Furniture/BarTable_01/BarTable_01.xob"
+   Object "{AAC0C1074566A4C7}Prefabs/Props/Other/SM_ATM_machine_01.xob"
   }
   RigidBody "{5872F0EB7DFB5A9D}" {
    ResponseIndex "HugeDestructible"
@@ -45,8 +45,10 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
     UserActionContext "{64E130C6CC1A5E84}" {
      ContextName "ATM"
      Position PointInfo "{64E130C6C62C439B}" {
+      Offset 0 1.4 -0.3
      }
      Radius 2
+     Height 0
     }
    }
    additionalActions {

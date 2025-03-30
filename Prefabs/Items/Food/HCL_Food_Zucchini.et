@@ -1,0 +1,16 @@
+GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Zucchini"
+    }
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{84586C9408612A72}Prefabs/Props/Vegetation/SM_Zucchini_A/SM_Zucchini.xob"
+  }
+ }
+ coords 1710.174 2 2987.418
+}
