@@ -1,0 +1,17 @@
+GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Corn"
+    }
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{92052B0C5336EF57}Prefabs/Props/Vegetation/SM_Corn_A/SM_Corn.xob"
+  }
+ }
+ coords 1656.215 2 2988.283
+ scale 0.52
+}

@@ -1,0 +1,18 @@
+GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Turnip"
+    }
+    m_Size SLOT_1x1
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{B9515C23703056CE}Prefabs/Props/Vegetation/SM_Turnip/SM_Turnip.xob"
+  }
+ }
+ coords 1702.665 2 2985.742
+ scale 0.45
+}

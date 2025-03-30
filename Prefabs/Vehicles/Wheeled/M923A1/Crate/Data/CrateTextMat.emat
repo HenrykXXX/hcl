@@ -1,7 +1,0 @@
-MatPBRBasic {
- Color 0.012 0 0 1
- Cull none
- AlphaTest 0.28
- BCRMap "{196F71A6B97B971C}Prefabs/Vehicles/Wheeled/M923A1/Crate/Data/UraniumPellets.edds"
- OpacityMap "{196F71A6B97B971C}Prefabs/Vehicles/Wheeled/M923A1/Crate/Data/UraniumPellets.edds"
-}

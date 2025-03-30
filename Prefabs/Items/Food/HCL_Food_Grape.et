@@ -1,0 +1,17 @@
+GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Grape"
+    }
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{DB4665AC8CE35DB5}Prefabs/Props/Vegetation/SM_Grape_A/SM_Grape.xob"
+  }
+ }
+ coords 1668.941 2.291 2990.295
+ scale 0.75
+}

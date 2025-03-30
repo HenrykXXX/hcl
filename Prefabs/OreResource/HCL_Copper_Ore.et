@@ -1,0 +1,12 @@
+Tree : "{21B101B6B43F6B7B}Prefabs/OreResource/HCL_Master_Ore.et" {
+ ID "0F2AA6B42CA78628"
+ components {
+  HCL_GatherableResourceComponent "{64F910C22984204B}" {
+   m_ResourcePrefab "{1F9C02ADF503991D}Prefabs/Items/Ore/HCL_Ore_copper.et"
+   m_sResourceName "Copper ore"
+  }
+  MeshObject "{64F910C229842054}" {
+   Object "{15571EDEEEF380D2}Prefabs/Props/OresAndIngots/Copper/SM_OreDeposit_Copper_GreyRock.xob"
+  }
+ }
+}

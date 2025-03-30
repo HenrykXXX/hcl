@@ -1,7 +1,0 @@
-MatPBRBasic {
- SpecularMul 0
- AlphaTest 0.197
- RoughnessScale 5
- MetalnessScale 5
- BCRMap "{201D78E65E56A2C0}Prefabs/Vehicles/Wheeled/M923A1/FuelRodsModel/Data/Zr.edds"
-}

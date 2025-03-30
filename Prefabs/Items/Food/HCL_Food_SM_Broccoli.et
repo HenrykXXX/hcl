@@ -1,0 +1,17 @@
+GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Broccoli"
+    }
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{A4EE157E0F92EE24}Prefabs/Props/Vegetation/SM_Broccoli_A/SM_Broccoli.xob"
+  }
+ }
+ coords 1637.187 2 2987.925
+ scale 0.83
+}

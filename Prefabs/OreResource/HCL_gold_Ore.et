@@ -1,0 +1,12 @@
+Tree : "{21B101B6B43F6B7B}Prefabs/OreResource/HCL_Master_Ore.et" {
+ ID "0F2AA6B42CA78628"
+ components {
+  HCL_GatherableResourceComponent "{64F910C22984204B}" {
+   m_ResourcePrefab "{4C53C4AE6B422B68}Prefabs/Items/Ore/HCL_Ore_gold.et"
+   m_sResourceName "Gold ore"
+  }
+  MeshObject "{64F910C229842054}" {
+   Object "{71311DFA66D0A946}Prefabs/Props/OresAndIngots/Gold/SM_OreDeposit_Gold_GreyRock.xob"
+  }
+ }
+}

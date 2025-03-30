@@ -1,0 +1,18 @@
+GenericEntity : "{6258C73D3F60EDF9}Prefabs/Items/Food/HCL_Food_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "Pumpkin"
+    }
+    m_Size SLOT_2x2
+   }
+  }
+  MeshObject "{64E349690B4E0D2D}" {
+   Object "{3E09E7FECF05A89F}Prefabs/Props/Vegetation/SM_Pumpkin_A/SM_Pumpkin.xob"
+  }
+ }
+ coords 1692.839 2.479 2985.463
+ scale 0.548
+}
