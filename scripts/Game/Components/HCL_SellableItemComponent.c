@@ -96,6 +96,9 @@ class HCL_SellableItemComponent: ScriptComponent
         // Show success message
         Print(string.Format("Success: Sold %1 for %2 money.", m_sItemName, m_iValue), LogLevel.NORMAL);
         
+        // Show success hint
+        SCR_HintManagerComponent.ShowCustomHint(string.Format("Sold %1 for %2 money", m_sItemName, m_iValue), "Item Sold", 3.0);
+        
         return true;
     }
 } 
