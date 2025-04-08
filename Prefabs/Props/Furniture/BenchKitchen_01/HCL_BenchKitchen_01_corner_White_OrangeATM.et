@@ -1,0 +1,55 @@
+GenericEntity : "{587FF67D8767126C}Prefabs/Props/Furniture/BenchKitchen_01/BenchKitchen_01_corner_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  HCL_ATMComponent "{651115C0A1B31BE0}" {
+   m_MenuName "ATM"
+   m_UserName "Janusz"
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Materials {
+    MaterialAssignClass "{519494B834C45337}" {
+     SourceMaterial "BenchKitchen_01"
+     AssignedMaterial "{B7D31626DE130F22}Assets/Props/Furniture/BenchKitchen_01/Data/BenchKitchen_01_Wood_White_Orange.emat"
+    }
+    MaterialAssignClass "{651115C04D19715D}" {
+     SourceMaterial "ColorPallete_01"
+     AssignedMaterial "{C575066DC657DC51}Common/Materials/ColorPalette/Color_palette_01_YELLOW_08_S1_R0.emat"
+    }
+    MaterialAssignClass "{651115C04D197158}" {
+     SourceMaterial "ColorPallete_02"
+     AssignedMaterial "{F3EC8DF7FFBF039D}Common/Materials/ColorPalette/Color_palette_01_ORANGE_13_S4_R1.emat"
+    }
+   }
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "LargeDestructible"
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" {
+   m_DestroySpawnObjects {
+    SCR_PrefabSpawnable "{51F0F556956A3339}" {
+     m_Prefabs {
+      "{98B83C80DB5CCF60}Prefabs/Props/Furniture/BenchKitchen_01/Dst/BenchKitchen_01_corner_dst_White_Orange.et"
+     }
+    }
+   }
+  }
+  ActionsManagerComponent "{651115C04D1971A4}" {
+   ActionContexts {
+    UserActionContext "{651115C04D1971A0}" {
+     ContextName "default"
+     Position PointInfo "{651115C04D1971BC}" {
+     }
+     Radius 2
+    }
+   }
+   additionalActions {
+    HCL_ATMAction "{651115C08E045D26}" {
+     ParentContextList {
+      "default"
+     }
+    }
+   }
+  }
+ }
+}

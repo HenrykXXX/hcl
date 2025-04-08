@@ -1,0 +1,55 @@
+GenericEntity : "{587FF67D8767126C}Prefabs/Props/Furniture/BenchKitchen_01/BenchKitchen_01_corner_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  HCL_SellableItemComponent "{65073DA1F3FD693F}" {
+   m_iValue 5000
+   m_sItemName "{5D66454327251DE0}Prefabs/Items/Food/HCL_Food_Peach.et"
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Materials {
+    MaterialAssignClass "{519494B834C45337}" {
+     SourceMaterial "BenchKitchen_01"
+     AssignedMaterial "{B7D31626DE130F22}Assets/Props/Furniture/BenchKitchen_01/Data/BenchKitchen_01_Wood_White_Orange.emat"
+    }
+    MaterialAssignClass "{65073DA1ED2B48A4}" {
+     SourceMaterial "ColorPallete_01"
+     AssignedMaterial "{C575066DC657DC51}Common/Materials/ColorPalette/Color_palette_01_YELLOW_08_S1_R0.emat"
+    }
+    MaterialAssignClass "{65073DA1ED2B488E}" {
+     SourceMaterial "ColorPallete_02"
+     AssignedMaterial "{F3EC8DF7FFBF039D}Common/Materials/ColorPalette/Color_palette_01_ORANGE_13_S4_R1.emat"
+    }
+   }
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "LargeDestructible"
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" {
+   m_DestroySpawnObjects {
+    SCR_PrefabSpawnable "{51F0F556956A3339}" {
+     m_Prefabs {
+      "{98B83C80DB5CCF60}Prefabs/Props/Furniture/BenchKitchen_01/Dst/BenchKitchen_01_corner_dst_White_Orange.et"
+     }
+    }
+   }
+  }
+  ActionsManagerComponent "{65073DA00BA7351E}" {
+   ActionContexts {
+    UserActionContext "{65073DA00F4FB96D}" {
+     ContextName "default"
+     Position PointInfo "{65073DA01DC90B56}" {
+     }
+     Radius 2
+    }
+   }
+   additionalActions {
+    HCL_SellItemAction "{65073DA06FBC73D9}" {
+     ParentContextList {
+      "default"
+     }
+    }
+   }
+  }
+ }
+}

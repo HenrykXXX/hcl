@@ -17,7 +17,8 @@ class HCL_ATMAction : ScriptedUserAction
     //------------------------------------------------------------------------------------------------
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity) 
     {   
-        if (!m_ATMComponent) return;
+        if (!m_ATMComponent)
+			return;
         
         SCR_PlayerController scrPlayerController = SCR_PlayerController.Cast(GetGame().GetPlayerController());
         if (!scrPlayerController || pUserEntity != scrPlayerController.GetMainEntity()) 
