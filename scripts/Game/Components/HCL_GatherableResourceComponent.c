@@ -31,6 +31,7 @@ class HCL_GatherableResourceComponent : GenericComponent
     protected void OnLastGatherTimeChanged()
     {
         // This will be called whenever the last gather time is changed on any machine
+		Print("OnLastGatherTimeChanged");
     }
     
     //------------------------------------------------------------------------------------------------
