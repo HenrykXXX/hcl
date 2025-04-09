@@ -4,6 +4,9 @@ Tree : "{F422A8E1894722A1}Prefabs/GatherableResourcePrefabs/HCL_Master_Gatherabl
   HCL_GatherableResourceComponent "{64E747953B723C96}" {
    m_ResourcePrefab "{5D66454327251DE0}Prefabs/Items/Food/HCL_Food_Peach.et"
   }
+  RplComponent "{64E374D14C0F7C4E}" {
+   "Rpl State Override" Runtime
+  }
  }
  Enabled 1
 }

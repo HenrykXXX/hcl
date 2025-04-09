@@ -4,9 +4,6 @@ class HCL_GatherResourceAction : ScriptedUserAction
     // Component that contains resource information
     protected HCL_GatherableResourceComponent m_ResourceComponent;
     
-    // Local timer for cooldown
-    protected float m_fLastGatherTime = 0;
-    
     //------------------------------------------------------------------------------------------------
     override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
     {
@@ -18,9 +15,6 @@ class HCL_GatherResourceAction : ScriptedUserAction
         {
             Print("Error! Could not find Gatherable Resource Component for this action.", LogLevel.ERROR);
         }
-        
-        // Initialize the timer
-        m_fLastGatherTime = 0.0;
     }
     
     //------------------------------------------------------------------------------------------------
@@ -80,16 +74,10 @@ class HCL_GatherResourceAction : ScriptedUserAction
             return;
         }
 		
-		
-		
-		m_ResourceComponent.TurnOn(resourceEntity, inventoryManager);
+		m_ResourceComponent.AddToInventory(resourceEntity, inventoryManager);
             
-        
-        // Only apply cooldown after successful gathering
-        m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
-        
-        // Show success hint
-        SCR_HintManagerComponent.ShowCustomHint(string.Format("Gathered %1", resourceName), "Resource Gathered", 2.0);
+        // Set the last gather time on the component
+        m_ResourceComponent.SetLastGatherTime();
     }
     
     //------------------------------------------------------------------------------------------------
@@ -103,13 +91,8 @@ class HCL_GatherResourceAction : ScriptedUserAction
         if (!inventoryManager)
             return false;
         
-        // Check cooldown
-        float currentTime = GetGame().GetWorld().GetWorldTime();
-        float cooldownTime = m_ResourceComponent.GetCooldownTime();
-        float timeRemaining = m_fLastGatherTime + cooldownTime - currentTime;
-        
-        // Check if still on cooldown
-        if (timeRemaining > 0)
+        // Check cooldown using component's method
+        if (m_ResourceComponent.IsOnCooldown())
             return false;
         
         return true;
@@ -142,14 +125,10 @@ class HCL_GatherResourceAction : ScriptedUserAction
         // Get resource name from component
         string resourceName = m_ResourceComponent.GetResourceName();
         
-        // Check if action is on cooldown
-        float currentTime = GetGame().GetWorld().GetWorldTime();
-        float cooldownTime = m_ResourceComponent.GetCooldownTime();
-        
-        if (currentTime < m_fLastGatherTime + cooldownTime)
+        // Check if action is on cooldown using component's method
+        if (m_ResourceComponent.IsOnCooldown())
         {
-            // Calculate remaining cooldown time in seconds
-            int remainingTime = Math.Round((m_fLastGatherTime + cooldownTime - currentTime)/1000);
+            int remainingTime = m_ResourceComponent.GetRemainingCooldownSeconds();
             outName = string.Format("Gather %1 (Available in %2 sec)", resourceName, remainingTime);
         }
         else
@@ -159,5 +138,4 @@ class HCL_GatherResourceAction : ScriptedUserAction
         
         return true;
     }
-
 }

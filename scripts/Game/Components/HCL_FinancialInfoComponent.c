@@ -77,6 +77,34 @@ class HCL_FinancialInfoComponent : ScriptComponent
     }
     
     //------------------------------------------------------------------------------------------------
+    // Add money to personal balance
+    bool AddMoney(int amount)
+    {
+        if (amount <= 0)
+            return false;
+            
+        m_iPersonalMoney += amount;
+        
+        // Notify about money change
+        OnMoneyChanged();
+        return true;
+    }
+    
+    //------------------------------------------------------------------------------------------------
+    // Remove money from personal balance
+    bool RemoveMoney(int amount)
+    {
+        if (amount <= 0 || amount > m_iPersonalMoney)
+            return false;
+            
+        m_iPersonalMoney -= amount;
+        
+        // Notify about money change
+        OnMoneyChanged();
+        return true;
+    }
+    
+    //------------------------------------------------------------------------------------------------
     // Called when money values change
     protected void OnMoneyChanged()
     {
