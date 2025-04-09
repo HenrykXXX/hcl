@@ -17,10 +17,20 @@ class HCL_GatherableResourceComponent : GenericComponent
 {
     protected HCL_GatherableResourceComponentClass m_pComponentClass;
     
+    [RplProp(onRplName: "OnLastGatherTimeChanged")]
+    protected float m_fLastGatherTime;
+    
     //------------------------------------------------------------------------------------------------
     void HCL_GatherableResourceComponent(IEntityComponentSource src, IEntity ent, IEntity parent)
     {
         m_pComponentClass = HCL_GatherableResourceComponentClass.Cast(GetComponentData(ent));
+        m_fLastGatherTime = 0.0;
+    }
+    
+    //------------------------------------------------------------------------------------------------
+    protected void OnLastGatherTimeChanged()
+    {
+        // This will be called whenever the last gather time is changed on any machine
     }
     
     //------------------------------------------------------------------------------------------------
@@ -52,30 +62,39 @@ class HCL_GatherableResourceComponent : GenericComponent
             
         return "Resource"; // Default name
     }
+    
+    //------------------------------------------------------------------------------------------------
+    //! Check if the resource is on cooldown
+    bool IsOnCooldown()
+    {
+        float currentTime = GetGame().GetWorld().GetWorldTime();
+        float cooldownTime = GetCooldownTime();
+        return (currentTime < m_fLastGatherTime + cooldownTime);
+    }
+    
+    //------------------------------------------------------------------------------------------------
+    //! Get the remaining cooldown time in seconds
+    int GetRemainingCooldownSeconds()
+    {
+        float currentTime = GetGame().GetWorld().GetWorldTime();
+        float cooldownTime = GetCooldownTime();
+        float remainingTime = m_fLastGatherTime + cooldownTime - currentTime;
+        return Math.Round(remainingTime / 1000);
+    }
+    
+    //------------------------------------------------------------------------------------------------
+    //! Set the last gather time (only on server)
+    void SetLastGatherTime()
+    {
+        if (Replication.IsServer())
+        {
+            m_fLastGatherTime = GetGame().GetWorld().GetWorldTime();
+            Replication.BumpMe();
+        }
+    }
 	
 	protected bool m_bIsTurnedOn;					// this value is edited only on authority's side
 
-//	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
-//	protected void RpcAsk_Authority_Method(bool turningOn)
-//	{
-//		Print("authority-side code");
-//
-//		if (turningOn == m_bIsTurnedOn)				// the authority has authority
-//			return;									// prevent useless network messages
-//
-//		m_bIsTurnedOn = turningOn;
-//
-//		//PlayMusic(turnOn);							// play music on authority
-//		//Rpc(RpcDo_Broadcast_Method, turningOn);		// send the music broadcast request
-//		//Rpc(RpcDo_Owner_Method);					// run specific code on the owner's entity (that may or may not be the authority)
-//	}
-//
-//	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
-//	protected void RpcDo_Owner_Method()
-//	{
-//		Print("owner-side code");
-//	}
-	
 	protected RplComponent GetRpl(RplId id)
 	{
 		Print("retrying...");
@@ -94,7 +113,6 @@ class HCL_GatherableResourceComponent : GenericComponent
 			return;
 		}
 		
-       
 	    IEntity itemEntity = itemRplComp.GetEntity();
 	    if (!itemEntity)
 	        return;
@@ -115,17 +133,20 @@ class HCL_GatherableResourceComponent : GenericComponent
 	        
 	    // Add item to inventory
 	    inventoryManager.InsertItem(itemEntity);
+	    
+	    // Show success hint to the user
+	    string resourceName = GetResourceName();
+	    SCR_HintManagerComponent.ShowCustomHint(string.Format("Gathered %1", resourceName), "Resource Gathered", 2.0);
 	}
 	
 	// public methods
-	void TurnOn(IEntity item, SCR_InventoryStorageManagerComponent manager)
+	void AddToInventory(IEntity item, SCR_InventoryStorageManagerComponent manager)
 	{
 	    // Get the RplComponent for the item
 	    RplComponent itemRplComp = RplComponent.Cast(item.FindComponent(RplComponent));
 	    if (!itemRplComp)
 	        return;
 		
-	        
 	    RplId itemRplId = itemRplComp.Id();
 	    
 	    // Get the user entity that owns the inventory manager
@@ -142,10 +163,5 @@ class HCL_GatherableResourceComponent : GenericComponent
 	    
 	    // Call the RPC with RplIds instead of entities
 	    Rpc(RpcDo_Broadcast_Method, itemRplId, userRplId);
-	}
-
-	void TurnOff()
-	{
-		//Rpc(RpcAsk_Authority_Method, false);
 	}
 } 
