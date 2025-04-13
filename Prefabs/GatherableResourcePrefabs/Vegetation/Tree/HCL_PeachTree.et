@@ -4,6 +4,25 @@ Tree : "{F422A8E1894722A1}Prefabs/GatherableResourcePrefabs/HCL_Master_Gatherabl
   HCL_GatherableResourceComponent "{64E747953B723C96}" {
    m_ResourcePrefab "{5D66454327251DE0}Prefabs/Items/Food/HCL_Food_Peach.et"
   }
+  HCL_ProcessableResourceComponent "{651961EFE0EE61DF}" {
+   m_OutputPrefab "{C4DA771017CEBA59}Prefabs/Items/Ingots/HCL_Ingot_copper.et"
+   m_aRequiredItems {
+    "{1F9C02ADF503991D}Prefabs/Items/Ore/HCL_Ore_copper.et"
+   }
+   m_aRequiredAmounts {
+    1
+   }
+  }
+  ActionsManagerComponent "{64E3497CDA08D5D9}" {
+   additionalActions {
+    HCL_ProcessResourceAction "{651961EFD8175F0A}" {
+     ParentContextList {
+      "GatherResource"
+     }
+     "Sort Priority" 1
+    }
+   }
+  }
   RplComponent "{64E374D14C0F7C4E}" {
    "Rpl State Override" Runtime
   }
